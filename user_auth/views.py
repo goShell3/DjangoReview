@@ -12,6 +12,12 @@ from .models import Person
 
 class UserRegister(APIView):
 
+    def get(self, request, format=None):
+        person_register = Person.objects.all()
+        serializer = PersonSerializers(person_register, many=True)
+        return Response(serializer.data)
+        
+
     def post(self, request, format=None):
         serializer = PersonSerializers(data=request.data)
         if serializer.is_valid():

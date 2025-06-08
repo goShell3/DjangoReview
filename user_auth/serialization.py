@@ -16,6 +16,7 @@ from .models import Person
 #         return instance
 
 class PersonSerializers(serializers.ModelSerializer):
+    
     class Meta:
         model = Person
         fieds = ['first_name', 'last_name']
